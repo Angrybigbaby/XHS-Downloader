@@ -184,7 +184,9 @@ class XHS:
                     u,
                     container["动图地址"],
                     index,
-                    self.CLEANER.filter_name(container["作者昵称"]),
+                    container["作者ID"]
+                    + "_"
+                    + self.CLEANER.filter_name(container["作者昵称"]),
                     name,
                     container["作品类型"],
                     container["时间戳"],

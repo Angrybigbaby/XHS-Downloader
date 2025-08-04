@@ -118,7 +118,9 @@ class Download:
 
     def __generate_path(self, nickname: str, filename: str):
         if self.author_archive:
-            folder = self.folder.joinpath(nickname)
+            # 拆分"作者ID_作者昵称"，仅保留作者昵称
+            author_name = nickname.split("_", 1)[-1] if "_" in nickname else nickname
+            folder = self.folder.joinpath(author_name)  # 仅用作者昵称命名文件夹
             folder.mkdir(exist_ok=True)
         else:
             folder = self.folder
